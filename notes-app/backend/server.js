@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const router = require('./app/routes')
 
 const app = express()
-
+const port = process.env.PORT || '3001'
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(bodyParser.json())
@@ -31,6 +31,6 @@ app.get('/', (req, res) => {
 
 app.use('/api', router)
 
-app.listen(3000, () => {
-  console.log('Server is listening on port 3000')
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`)
 })
