@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const dbConfig = require('./config/database.config')
 const mongoose = require('mongoose')
+const router = require('./app/routes')
 
 const app = express()
 
@@ -28,7 +29,7 @@ app.get('/', (req, res) => {
   })
 })
 
-require('./app/routes/note.routes.js')(app)
+app.use('/api', router)
 
 app.listen(3000, () => {
   console.log('Server is listening on port 3000')

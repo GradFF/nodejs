@@ -1,14 +1,14 @@
-module.exports = app => {
+module.exports = router => {
   const notes = require('../controllers/note.controller.js')
 
   // create a new Note
-  app.post('/notes', notes.create)
+  router.post('/notes', notes.create)
   // Retrieve all Notes
-  app.get('/notes', notes.get)
+  router.get('/notes', notes.get)
   // Retrieve a single Note with noteId
-  app.get('/notes/:noteId', notes.find)
+  router.get('/notes/:noteId', notes.find)
   // Update Note with noteId
-  app.put('/notes/:noteId', notes.update)
+  router.put('/notes/:noteId', notes.update)
   // Delete Note with noteId
-  app.delete('/notes/:noteId', notes.delete)
+  router.delete('/notes/:noteId', notes.delete)
 }
